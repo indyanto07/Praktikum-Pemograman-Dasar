@@ -1,49 +1,46 @@
 import java.util.Scanner;
 
-public class Tugas1Pemdas {
+public class laprak1 {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner((System.in));
 
-        System.out.print("Tanggal Beli : ");
-        int tangggalBeli = scan.nextInt();
+        System.out.print("Masukkan nama : ");
+        String nama = scan.nextLine();
 
-        System.out.print("Bulan Beli : ");
-        int bulanBeli = scan.nextInt();
+        System.out.print("Kelurahan : ");
+        String kelurahan = scan.nextLine();
+        
+        System.out.print("Masukkan posisi awal Kwh Meter : ");
+        int awalKwh = scan.nextInt();
+        
+        System.out.print("Masukkan posisi akhir Kwh Meter : ");
+        int akhirKwh = scan.nextInt();
+        
+        System.out.print("Masukkan biaya beban saat ini : ");
+        int biayaBeban = scan.nextInt();
+        
+        System.out.print("Masukkan PPJ (dalam persen) : ");
+        int ppj = scan.nextInt();
 
-        System.out.print("Tahun beli : ");
-        int tahunBeli = scan.nextInt();
-        scan.nextLine();
+        int pemakaian = akhirKwh-awalKwh;
+        int tarif = biayaBeban*1000;
+        int totalppj = tarif*ppj/100;
+        int bayar = tarif+totalppj;
 
-        System.out.print("Belanja Barang : ");
-        String belanjaBarang = scan.nextLine();
-
-        System.out.print("Jumlah Barang : ");
-        int jumlahBarang = scan.nextInt();
-
-        System.out.print("Harga barang : ");
-        double hargaBarang = scan.nextDouble();
-
-        System.out.print("diskon : ");
-        float diskon = scan.nextFloat();
-
-        System.out.print("Jenis Pembayaran : ");
-        boolean jenisPembayaran = scan.nextBoolean();
-
-        double totalharga = hargaBarang*jumlahBarang; 
-
-        double hargafinal = totalharga-(totalharga*(diskon/100));
-
-        System.out.println("========= List Barang =========");
-        System.out.printf("%-17s: %s\n", "Tanggal", (tangggalBeli + "-" +  bulanBeli + "-" +  tahunBeli));
-        System.out.printf("%-17s: %s\n", "Barang belanja",belanjaBarang);
-        System.out.printf("%-17s: %s\n","Jumlah barang", jumlahBarang);
-        System.out.printf("%-17s: %,.2f\n","Harga Barang", hargaBarang);
-        System.out.printf("%-17s: %.1f %s\n","Diskon",diskon,"%");
-        System.out.println("-------------------------------");
-        System.out.printf("%-17s: Rp%,.2f\n","Total harga",totalharga);
-        System.out.printf("%-17s: Rp%,.2f\n","Pembayaran",hargafinal);
-        System.out.printf("%-17s: %b","Pembayaran tunai",jenisPembayaran);
+        System.out.printf("%s %s===================\n","===================PLN",kelurahan);
+        System.out.printf("%-20s: %s\n","Nama",nama);
+        System.out.printf("%-20s: %s\n","Kelurahan", kelurahan);
+        System.out.printf("%-20s: %d KWh\n","Pemakaian Bulan ini", pemakaian);
+        System.out.printf("%-20s: Rp %d,-\n", "Tarif Listrik", tarif);
+        System.out.printf("%-20s: Rp %d,-\n", ("PPJ " + ppj + "%"), totalppj);
+        System.out.printf("%-20s: Rp %d,-\n", "Total Bayar", bayar);
+        System.out.println("==============================================");
 
         scan.close();
+
+
+
+
     }
+    
 }
